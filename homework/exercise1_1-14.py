@@ -9,22 +9,25 @@
 
 
 # if level_of_service == 'good':
-#     tip_amount = total_bill * .20
+#     tip_amount = total_bill * .20100
 #     total_amount = total_bill * 1.20
-#     print(f'Tip Amount: ${tip_amount:.2f}') # :.2f is the newer version of "%.2f"
-#     print(f'Total Amount: ${total_amount:.2f}')
+#     #print(f'Tip Amount: ${tip_amount:.2f}') # :.2f is the newer version of "%.2f"
+#     #print(f'Total Amount: ${total_amount:.2f}')
 # elif level_of_service == 'fair':
 #     tip_amount = total_bill * .15
 #     total_amount = total_bill * 1.15
-#     print(f'Tip Amount: ${tip_amount:.2f}')
-#     print(f'Total Amount: ${total_amount:.2f}')
+#     #print(f'Tip Amount: ${tip_amount:.2f}')
+#     #print(f'Total Amount: ${total_amount:.2f}')
 # elif level_of_service == 'bad':
 #     tip_amount = total_bill * .10
 #     total_amount = total_bill * 1.10
-#     print(f'Tip Amount: ${tip_amount:.2f}')
-#     print(f'Total Amount: ${total_amount:.2f}')
+#     #print(f'Tip Amount: ${tip_amount:.2f}')
+#     #print(f'Total Amount: ${total_amount:.2f}')
 # else:
 #     print("Try again, make sure to choose good, fair, or bad.")
+
+# print(f'Tip Amount: ${tip_amount:.2f}')
+# print(f'Total Amount: ${total_amount:.2f}')
 
 #==================
 #2 tip calculator 2
@@ -37,24 +40,18 @@
 # if level_of_service == 'good':
 #     tip_amount = total_bill * .20
 #     total_amount = total_bill * 1.20
-#     print(f'Tip Amount: ${tip_amount:.2f}') # :.2f is the newer version of "%.2f"
-#     print(f'Total Amount: ${total_amount:.2f}')
-#     print(f'Amount per person: ${total_amount/split_num:.2f}')
 # elif level_of_service == 'fair':
 #     tip_amount = total_bill * .15
 #     total_amount = total_bill * 1.15
-#     print(f'Tip Amount: ${tip_amount:.2f}')
-#     print(f'Total Amount: ${total_amount:.2f}')
-#     print(f'Amount per person: ${total_amount/split_num:.2f}')
 # elif level_of_service == 'bad':
 #     tip_amount = total_bill * .10
 #     total_amount = total_bill * 1.10
-#     print(f'Tip Amount: ${tip_amount:.2f}')
-#     print(f'Total Amount: ${total_amount:.2f}')
-#     print(f'Amount per person: ${total_amount/split_num:.2f}')
 # else:
 #     print("Try again, make sure to choose good, fair, or bad.")
 
+# print(f'Tip Amount: ${tip_amount:.2f}') # :.2f is the newer version of "%.2f"
+# print(f'Total Amount: ${total_amount:.2f}')
+# print(f'Amount per person: ${total_amount/split_num:.2f}')
 
 #==================
 #3 how many coins
@@ -79,12 +76,15 @@
 # middle_row_blanks = ' ' * (width - 2)
 # middle_row = '*' + middle_row_blanks + '*'
 
-# print(top_bottom_row_string)
-# row_counter = 1
-# while row_counter <= height - 2:
-#     row_counter += 1
-#     print(middle_row)
-# print(top_bottom_row_string)
+# if width > 2 and height > 2:
+#     print(top_bottom_row_string)
+#     row_counter = 1
+#     while row_counter <= height - 2:
+#         row_counter += 1
+#         print(middle_row)
+#     print(top_bottom_row_string)
+# else:
+#     print(f'Your width and height each need to be greater than 2.')
 
 #==================
 #5 Print a Triangle
@@ -142,27 +142,27 @@
 #======================
 #3 Guess a Number
 #======================
-import random
-number_to_guess = random.randint(1, 10)
-guess_count = 0
+# import random
+# number_to_guess = random.randint(1, 10)
+# guess_count = 0
 
-print('I am thinking of a number between 1 and 10.')
-number_guessed = int(input('What\'s the number? You get 5 guesses: '))
-while number_guessed != number_to_guess:
-    guess_count += 1
-    if number_guessed < number_to_guess:
-        print("You guessed too low!")
-    elif number_guessed > number_to_guess:
-        print("You guessed too high!")
+# print('I am thinking of a number between 1 and 10.')
+# number_guessed = int(input('What\'s the number? You get 5 guesses: '))
+# while number_guessed != number_to_guess:
+#     guess_count += 1
+#     if number_guessed < number_to_guess:
+#         print("You guessed too low!")
+#     elif number_guessed > number_to_guess:
+#         print("You guessed too high!")
 
-    if guess_count == 5:
-        print('You ran out of guesses, noob!')
-        break
-    print(f'You have {5 - guess_count} guesses left.')
-    number_guessed = int(input('What\'s the number?: '))
-    if number_guessed == number_to_guess:
-        print('You win!')
-        break
+#     if guess_count == 5:
+#         print('You ran out of guesses, noob!')
+#         break
+#     print(f'You have {5 - guess_count} guesses left.')
+#     number_guessed = int(input('What\'s the number?: '))
+#     if number_guessed == number_to_guess:
+#         print('You win!')
+#         break
 
 
 

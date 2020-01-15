@@ -94,6 +94,54 @@ students = ['a', 'b', 'c', 'd', 'e']
 # print(multi_list[1][0]) # 12
 # print(multi_list[1][1]) # 10
 
-new_list_sort = [4, 293, 1000, 50, 1, 39]
-new_list_sort.sort()
-print(new_list_sort)
+# new_list_sort = [4, 293, 1000, 50, 1, 39]
+# new_list_sort.sort()
+# print(new_list_sort)
+
+# new_list_sort.extend([1, 2, 3, 567])
+# #new_list_sort.append([1, 2, 3, 567])
+# print(new_list_sort)
+
+# new_list_sort.clear()
+# print(new_list_sort)
+
+# my_string = 'Hello World'
+
+# print(my_string[3])
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+# index = 0
+# while index < len(alphabet):
+#     #print(alphabet[index])
+#     index += 1
+
+# print(type(alphabet))
+
+# alph2 = list(alphabet)
+# print(type(alph2))
+# print(alph2)
+
+# alph2_string = " ".join(alph2)
+# print(alph2_string)
+
+# my_tupel = (1, 2, 3, 'Hello')
+# print(my_tupel)
+# print(my_tupel[3])
+
+# pi_1, pi_2, pi_3 = (3.14, 6.28, 9.42)
+# print('hello')
+
+# for i in range(0,26,1):
+#     print(alphabet[i], end='')
+    
+# print('')
+# for letter in alphabet:
+#     print(letter, end='')
+
+# for i in range(1, 1001, 2):
+#     print(i, end=", ")
+
+for i in range(1,11,1):
+    print('')
+    for ii in range(1,11,1):
+        print(f'{i} X {ii} = {i*ii}', end=', ')

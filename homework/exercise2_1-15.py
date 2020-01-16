@@ -40,14 +40,14 @@
 # =======================
 
 #Think of this as the 3 Dimensional matrix these lists represent, with rows and columns!
-#list_1 = [['a','b','c'],['d','e','f'],['g','h','i']]
-#list_2 = [['A','B','C'],['D','E','F'],['G','H','I']]
-#list_1 = [[1,3],[2,4]]
-#list_2 = [[5,2],[1,0]]
-#list_1 = [[2,4], [1,6]]
-#list_2 = [[4,7], [2,3]]
-# list_1 = [[1,2,3],[1,2,3],[1,2,3]]
-# list_2 = [[1,2,3],[1,2,3],[1,2,3]]
+# list_1 = [['a','b','c'],['d','e','f'],['g','h','i']]
+# list_2 = [['A','B','C'],['D','E','F'],['G','H','I']]
+# list_1 = [[1,3],[2,4]]
+# list_2 = [[5,2],[1,0]]
+# list_1 = [[2,4], [1,6]]
+# list_2 = [[4,7], [2,3]]
+# list_1 = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
+# list_2 = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
 # final_added_matrix = []
 # row_for_final_matrix = []
 # for column in range(len(list_1[0])): #list_1[0] is [a,b,c], the first item in list_1, and getting its length is equivalent
@@ -81,6 +81,28 @@
 #         duplicate_check.append(number) # add it to our duplicate list so we'll catch it in the future
 #         new_list_sans_dups.append(number)
 # print(new_list_sans_dups)
+
+#Or:
+
+# a =  [1, 4, 5, 1, 7, 8, 11, 8, 4, 7, 33, 32, 29]
+# b = a.copy()
+# b = list(set(a))
+# print(b)
+
+#Or
+
+# original= [1, 4, 5, 1, 7, 8, 11, 8, 4, 7, 33, 32, 29]
+# newlist=[]
+# for item in original:
+#     if item in newlist:
+#         continue
+#     else:
+#         newlist.append(item)
+#         #print( "Added "+str(item))
+# print(f'Original List: {original}')
+# print(f'New List:      {newlist}')
+
+
 
 # ======================
 # 5 - Leetspeak
@@ -169,6 +191,22 @@
 #             break #stop looping once a match is found
 #     cyphered_string += offset_letter
 # print(cyphered_string)
+
+#OR
+
+# txt = "lbh zhfg hayrnea jung lbh unir yrnearq" # message
+# alpha = "abcdefghijklmnopqrstuvwxyz"
+# offset = int(input("Please input offset number  "))
+# result = ""
+# for char in txt:
+#     # print(type(alpha.find(char)))
+#     if char in alpha:
+#         alpha_index = (alpha.find(char)-offset)%len(alpha)
+#         result = result + alpha[alpha_index]
+#     else:
+#         result = result + char
+# print(result)
+
 
 
 # ====================================================================

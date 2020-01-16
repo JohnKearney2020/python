@@ -66,21 +66,24 @@
 # ============================
 #def move(board, location, player):
 
-board = [['-','-','-'],['-','-','-'],['-','-','-']] # 3 x 3 matrix representing our board
-location = []
+# board = [['-','-','-'],['-','-','-'],['-','-','-']] # 3 x 3 matrix representing our board
+# location = []
 
-#Get player value
-player = input('Do you want to be player X or player Y?: ')
-player = player.upper()
-while player != 'X' and player != 'Y':
-    player = input('Type X or Y to choose your player: ')
-    player = player.upper()
+# #Get player value
+# player = input('Do you want to be player X or player Y?: ')
+# player = player.upper()
+# while player != 'X' and player != 'Y':
+#     player = input('Type X or Y to choose your player: ')
+#     player = player.upper()
 
-#get location
-print('Choose a location to place your \'X\' or \'O\' in the form of "column, row: "')
-print('For example, if you type '1,1' without the \'\')
-location = input('Choose a location to place your \'X\' or \'O\' in the form of "column, row" without the "": ')
-print(location)
+# #get location
+# location = []
+# print('Choose a location to place your \'X\' or \'O\' in the form of "column, row: "')
+# print('For example, if you type \'1,1\' without the quotes: ')
+# location = input('Location: ')
+# location = location.split(',') #we need to convert the user input to a list
+# #print(location)
+# #print(type(location))
 
 
 

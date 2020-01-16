@@ -155,6 +155,15 @@
 #     new_string+= letter
 # print(new_string)
 
+#OR
+
+# vowels = (('aa', 'aaaaa'), ('ee', 'eeeee'), ('oo', 'ooooo'), ('ii', 'iiiii'), ('uu', 'uuuuu'))
+# text = input("Enter a word with duplicate vowels in it .. (Good) ")
+# vow_text = text
+# for old, new in vowels:
+#     vow_text = vow_text.replace(old, new)
+# print (vow_text)
+
 # ======================
 # 7 - Caesar Cipher
 # ======================

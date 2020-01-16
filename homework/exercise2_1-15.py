@@ -65,23 +65,110 @@
 # ======================
 # 4 - De-dup
 # ======================
-list_of_numbers = [1, 33, 23, 6, 8, 33, 1, 11, 67, 100, 6]
-duplicate_check = []
-new_list_sans_dups = []
-for number in list_of_numbers:
-    is_duplicate = False #needs to be reset here on each loop
-    for dup_number in duplicate_check:
-        if number == dup_number:
-            is_duplicate = True
-            break #exit this loop if it is indeed a duplicate we've already accounted for       
-    if is_duplicate == True:
-        continue #if a duplicate, go to the next number in list_of_numbers
-    else:
-        duplicate_check.append(number) # add it to our duplicate list so we'll catch it in the future
-        new_list_sans_dups.append(number)
-print(new_list_sans_dups)
-    
 
+# list_of_numbers = [1, 33, 23, 6, 8, 33, 1, 11, 67, 100, 6]
+# duplicate_check = []
+# new_list_sans_dups = []
+# for number in list_of_numbers:
+#     is_duplicate = False #needs to be reset here on each loop
+#     for dup_number in duplicate_check:
+#         if number == dup_number:
+#             is_duplicate = True
+#             break #exit this loop if it is indeed a duplicate we've already accounted for       
+#     if is_duplicate == True:
+#         continue #if a duplicate, go to the next number in list_of_numbers
+#     else:
+#         duplicate_check.append(number) # add it to our duplicate list so we'll catch it in the future
+#         new_list_sans_dups.append(number)
+# print(new_list_sans_dups)
+
+# ======================
+# 5 - Leetspeak
+# ======================
+
+# string_to_translate = 'I am a leet programmer'
+# string_to_translate = string_to_translate.upper()
+# new_leet_string = ''
+# for letter in string_to_translate:
+#     if letter == 'A':
+#         letter = '4'
+#     elif letter == 'E':
+#         letter = '3'
+#     elif letter == 'G':
+#         letter = '6'
+#     elif letter == 'I':
+#         letter = '1'
+#     elif letter == 'O':
+#         letter = '0'
+#     elif letter == 'S':
+#         letter = '5'
+#     elif letter == 'T':
+#         letter = '7'
+#     new_leet_string += letter
+# print(new_leet_string)
+
+# ======================
+# 6 - Long-long Vowels
+# ======================
+
+# string_to_vowel_check = 'Good'
+# last_letter = ''
+# new_string = ''
+# for letter in string_to_vowel_check:
+#     is_vowel = False
+#     if letter == last_letter:
+#         if letter == 'a' or letter == 'A':
+#             is_vowel = True
+#         elif letter == 'e' or letter == 'E':
+#             is_vowel = True
+#         elif letter == 'i' or letter == 'I':
+#             is_vowel = True
+#         elif letter == 'o' or letter == 'O':
+#             is_vowel = True
+#         elif letter == 'u' or letter == 'U':
+#             is_vowel = True
+#     last_letter = letter
+#     if is_vowel == True:
+#         letter = letter*4
+#     new_string+= letter
+# print(new_string)
+
+# ======================
+# 7 - Caesar Cipher
+# ======================
+
+# string_to_cypher = 'lbh zhfg hayrnea jung lbh unir yrnearq'
+# alphabet = 'abcdefghijklmnopqrstuvwxyz'
+# cyphered_string = ''
+
+# for letter in string_to_cypher:
+#     #if the letter is a blank, we need to add it to our final cyphered string and more to the next letter
+#     if letter == ' ':
+#         cyphered_string += ' '
+#         continue
+#     #each of these counters needs to be reset with each outer loop
+#     alphabet_counter = 0
+#     alph_offset = 0
+#     offset_letter_counter = 0
+#     offset_letter = ''
+
+#     for each_letter in alphabet: #find what letter number the letter is
+#         alphabet_counter += 1
+#         if letter == each_letter:
+#             break
+    
+#     alph_offset = alphabet_counter + 13 #define the offset letter number
+    
+#     if alph_offset > 26: #if the offset is > 26 wrap it back round to the beginning of the alphabet
+#         alph_offset = alph_offset - 26
+    
+#     for each_letter in alphabet: #find what letter the offset letter is
+#         offset_letter_counter += 1
+#         if offset_letter_counter == alph_offset:
+#             offset_letter = each_letter
+#             break #stop looping once a match is found
+#     cyphered_string += offset_letter
+# print(cyphered_string)
 
 
 # ====================================================================

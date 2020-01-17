@@ -35,10 +35,8 @@
 # def shortest(string_list):
 #     shortest_str = string_list[0]
 #     for each_string in string_list:
-#         string_len = len(each_string)
-#         if string_len < len(shortest_str):
-#             shortest_str = each_string
-            
+#         if len(each_string) < len(shortest_str):
+#             shortest_str = each_string            
 #     return shortest_str
 # print(f'Your list of strings is: {list_o_strings}')
 # print(f'The shortest string in your list is: {shortest(list_o_strings)}')
@@ -108,7 +106,7 @@
 # def C_to_F(degC):
 #     degF = (degC * 9/5 + 32)
 #     return degF
-# print(f'{C_to_F(100):.2f}')
+# print(f'{C_to_F(100):.2f}')#:.2f prints a float to two decimal places
 # print(f'{C_to_F(0):.2f}')
 
 # ====================================

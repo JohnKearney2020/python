@@ -20,19 +20,31 @@
 # dict_of_letters = letter_histogram(word)
 # print(dict_of_letters)
 
+#OR
+# empty_dict = {}
+# #word = input("Enter a word: ")
+# word = 'Banana'
+# for letters in word:
+#     if letters not in empty_dict: #if the letter is not already in the dictionary, we create the key and set
+#         #it equal to zero
+#         empty_dict[letters] = 0
+#     empty_dict[letters] += 1 #here we increment by one
+# print(empty_dict)   
+
+
 # =========================
 # 2 - Word Summary
 # =========================
 
-# def word_histogram(sentence):
-#     dict_of_words_f = {}
-#     for each_word in sentence:
-#         word_count = 0
-#         for each_word2 in sentence:
-#             if each_word == each_word2:
-#                 word_count += 1
-#             dict_of_words_f[each_word] = word_count
-#     return dict_of_words_f
+def word_histogram(sentence):
+    dict_of_words_f = {}
+    for each_word in sentence:
+        word_count = 0
+        for each_word2 in sentence:
+            if each_word == each_word2:
+                word_count += 1
+            dict_of_words_f[each_word] = word_count
+    return dict_of_words_f
 
 # sentence = input("Enter a sentence: ")
 # sentence = sentence.lower()
@@ -40,44 +52,56 @@
 # dict_of_words = word_histogram(sentence)
 # print(dict_of_words)
 
+#OR - we can do this similar to how we did the previous problem by using 'not in'
+
+# sent_histogram = {}
+# entered_sentence = input("Please enter a sentence... ")
+# sent_to_words = entered_sentence.split()
+# for repeats in sent_to_words:
+#     if repeats not in sent_histogram:
+#         sent_histogram[repeats] = 0
+#     sent_histogram[repeats] += 1
+# print(sent_histogram)
+
+
+
+
 # =========================
 # 3 - Sorting a histogram
 # =========================
-# def sort_and_tally(dictionary):
-#     # items = dictionary.items()
-#     sorted_dict = {}
-#     #print(type(items))
-#     for each_word, each_count in dictionary.items():
-#         #print(each_word, each_count)
-#         if (each_word in sorted_dict) == True: #if we've already tallied this word, skip it.
-#             continue
-#         highest_count = each_count
-#         highest_word = each_word
-#         for each_word2, each_count2 in dictionary.items():
-#             if (each_word2 in sorted_dict) == True: #if we've already tallied this word, skip it.
-#                 continue
-#             if each_count2 > highest_count:
-#                 highest_count = each_count2
-#                 highest_word = each_word2
-#         #sorted_list.append(highest_word + ': ' + str(highest_count))
-#         sorted_dict[highest_word] = highest_count
-#     return sorted_dict
+def sort_and_tally(dictionary):
+    # items = dictionary.items()
+    sorted_dict = {}
+    for each_word, each_count in dictionary.items():
+        if (each_word in sorted_dict) == True: #if we've already tallied this word, skip it.
+            continue
+        highest_count = each_count
+        highest_word = each_word
+        for each_word2, each_count2 in dictionary.items():
+            if (each_word2 in sorted_dict) == True: #if we've already tallied this word, skip it.
+                continue
+            if each_count2 > highest_count:
+                highest_count = each_count2
+                highest_word = each_word2
+        sorted_dict[highest_word] = highest_count
+    return sorted_dict
 
 
-# sentence = input("Enter a sentence: ")
-# sentence = sentence.lower()
-# sentence = sentence.split() #split our sentence into a list of each word woot woot!
-# dict_of_words = word_histogram(sentence)
-# #print(type(dict_of_words))
-# #print(dict_of_words.sort())
-# sorted_and_tally_dict = sort_and_tally(dict_of_words)
-# print(f'The top three words are: ')
-# count = 0
-# for each_word, each_count in sorted_and_tally_dict.items():
-#     count += 1
-#     print(f'{each_word}: {each_count}')
-#     if count == 3:
-#         break
+#sentence = input("Enter a sentence: ")
+sentence = 'Hey ho let\'s go to the other side hey ho hey'
+sentence = sentence.lower()
+sentence = sentence.split() #split our sentence into a list of each word woot woot!
+dict_of_words = word_histogram(sentence) #this is my function from #2
+#print(type(dict_of_words))
+#print(dict_of_words.sort())
+sorted_and_tally_dict = sort_and_tally(dict_of_words)
+print(f'The top three words are: ')
+count = 0
+for each_word, each_count in sorted_and_tally_dict.items():
+    count += 1
+    print(f'{each_word}: {each_count}')
+    if count == 3: #we only want to print the top 3 
+        break
 
 
 

@@ -125,14 +125,14 @@
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #                 Inheritance
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-class Student:
-    def __init__(self, name, school):
-        self.name = name
-        self.school = school
-        self.marks = []
+# class Student:
+#     def __init__(self, name, school):
+#         self.name = name
+#         self.school = school
+#         self.marks = []
     
-    def average(self):
-        return sum(self.marks) / len(self.marks)
+#     def average(self):
+#         return sum(self.marks) / len(self.marks)
 
 # class WorkingStudent:
 #     def __init__(self, name, school, salary):
@@ -150,21 +150,54 @@ class Student:
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #This is all well and good, but we can reduce a LOT of the duplication in WorkingStudent
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-class WorkingStudent(Student): #WorkingStudent is a child of Student, it extend student
-    def __init__(self, name, school, salary):
-        #we MUST keep these properties even though they are duplicate from the Student class
-        super().__init__(name, school) #super is the Parent class, itc Student, where we first declared name and school. Since WorkingStudent also takes name and school as
-        #parameters, we need to include those in the parenthesis. We do NOT include marks as that is not a parameter for WorkingStudent
-        self.salary = salary #salary is unique to this class and must be declared like so here
-    #we still have the average method in the WorkingStudent class because we defined it earlier in the Student class and we set WorkingStudent up to inherit Student
-    def weekly_salary(self):
-        return self.salary*40
+# class WorkingStudent(Student): #WorkingStudent is a child of Student, it extend student
+#     def __init__(self, name, school, salary):
+#         #we MUST keep these properties even though they are duplicate from the Student class
+#         super().__init__(name, school) #super is the Parent class, itc Student, where we first declared name and school. Since WorkingStudent also takes name and school as
+#         #parameters, we need to include those in the parenthesis. We do NOT include marks as that is not a parameter for WorkingStudent
+#         self.salary = salary #salary is unique to this class and must be declared like so here
+#     #we still have the average method in the WorkingStudent class because we defined it earlier in the Student class and we set WorkingStudent up to inherit Student
+#     def weekly_salary(self):
+#         return self.salary*40
 
-rolf = WorkingStudent('Rolf', 'MIT', 15.50)
-print(rolf.salary)
-rolf.marks.append(57)
-rolf.marks.append(99)
-print(rolf.average())
-print(rolf.weekly_salary())
+# rolf = WorkingStudent('Rolf', 'MIT', 15.50)
+# print(rolf.salary)
+# rolf.marks.append(57)
+# rolf.marks.append(99)
+# print(rolf.average())
+# print(rolf.weekly_salary())
 
 #classes flow down hill. The parent does not get the functionality of its children. However, the children do get the functionality of their parents.
+
+
+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#                 The @ property
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#if a method is ***NOT*** performing actions (connecting to a database, for example), and is simply performing calculations and
+#returning a value, we can use the @property to simplify the method call
+
+# class Student:
+#     def __init__(self, name, school):
+#         self.name = name
+#         self.school = school
+#         self.marks = []
+    
+#     def average(self):
+#         return sum(self.marks) / len(self.marks)
+
+# class WorkingStudent(Student): #WorkingStudent is a child of Student, it extend student
+#     def __init__(self, name, school, salary):
+#         #we MUST keep these properties even though they are duplicate from the Student class
+#         super().__init__(name, school) #super is the Parent class, itc Student, where we first declared name and school. Since WorkingStudent also takes name and school as
+#         #parameters, we need to include those in the parenthesis. We do NOT include marks as that is not a parameter for WorkingStudent
+#         self.salary = salary #salary is unique to this class and must be declared like so here
+#     #we still have the average method in the WorkingStudent class because we defined it earlier in the Student class and we set WorkingStudent up to inherit Student
+#     @property
+#     def weekly_salary(self):
+#         return self.salary*40
+
+# #with the @property, we can use .weekly_salary INSTEAD of .weekly_salary()
+# rolf = WorkingStudent('Rolf', 'MIT', 15.50)
+# print(rolf.weekly_salary)
+# # print(rolf.weekly_salary())

@@ -249,28 +249,28 @@ Sean = Student('Sean', 'Page')
 
 
 
-class Student():
-    def __init__(self, firstName, lastName, campus):
-        self.firstName = firstName
-        self.lastName = lastName
-        self.campus = campus
-    def printStudent(self):
-        print(f"{self.firstName} {self.lastName} campus: {self.campus}")
+# class Student():
+#     def __init__(self, firstName, lastName, campus):
+#         self.firstName = firstName
+#         self.lastName = lastName
+#         self.campus = campus
+#     def printStudent(self):
+#         print(f"{self.firstName} {self.lastName} campus: {self.campus}")
 
-class Campus(): #this manages our Students class and objects
-    def __init__(self):
-        self.students = []
-    def addStudent(self, firstName, lastName, campus):
-        temp  = Student(firstName, lastName, campus)
-        self.students.append(temp)
+# class Campus(): #this manages our Students class and objects
+#     def __init__(self):
+#         self.students = []
+#     def addStudent(self, firstName, lastName, campus):
+#         temp  = Student(firstName, lastName, campus)
+#         self.students.append(temp)
 
-    def printSomeStudent(self, index):
-        print(self.students[index])
-        return self.students[index]
+#     def printSomeStudent(self, index):
+#         print(self.students[index])
+#         return self.students[index]
 
-    def showCurrentStudent(self):
-        for studentObject in self.students :
-            print(f"{studentObject.firstName} {studentObject.lastName} campus: {studentObject.campus}")
+#     def showCurrentStudent(self):
+#         for studentObject in self.students :
+#             print(f"{studentObject.firstName} {studentObject.lastName} campus: {studentObject.campus}")
 
 # alina = Student('alina', 'bolova', 'Houston')
 # kazim = Student('kazim', 'oomar', 'Houston')
@@ -325,6 +325,36 @@ class Bank():
             for accountHolderObject in self.account_holders:
                 print(f"\tName: {accountHolderObject.first_name} {accountHolderObject.middle_name} {accountHolderObject.last_name}, Account Type: {accountHolderObject.account_type}, Balance: ${accountHolderObject.balance}, Status: {accountHolderObject.status}")
     
+    def makeTransfer(self): #3
+        print('....................')
+        transfer_amount = int(input('How much would you like to transfer?: '))
+        print('....................')
+        account_from_fname = input('What is the FIRST name of the account holder you want to TRANSFER FROM?: ')
+        account_from_lname = input('What is the LAST name of the account holder you want to TRANSFER FROM?: ')
+        print('....................')
+        account_to_fname = input('What is the FIRST name of the account holder you want to TRANSFER TO?: ')
+        account_to_lname = input('What is the LAST name of the account holder you want to TRANSFER TO?: ')
+        print('....................')
+        for accountHolderObject in self.account_holders: #deal with the withdrawal first
+            if (accountHolderObject.last_name == account_from_lname and accountHolderObject.first_name == account_from_fname): #when we find the withdrawal account with matching first and last name
+                accountHolderObject.balance -= transfer_amount
+                if (accountHolderObject.balance < 0):
+                    odraft_amount = 0 - accountHolderObject.balance
+                    accountHolderObject.balance -= 35
+                    print('....................')
+                    print(f'You have overdrafted the withdrawal account by ${odraft_amount}. You have been charged a $35 overdraft fee.')
+                    print(f'Your balance on the withdrawal account including all fees is now ${accountHolderObject.balance}.')
+                    print('....................')
+                for accountHolderObject in self.account_holders: #now we find the transfer to account. We nest this inside our first if statement so the transfer will execute only
+                    #one time
+                    if accountHolderObject.last_name == account_to_lname and accountHolderObject.first_name == account_to_fname:
+                        accountHolderObject.balance += transfer_amount
+                        print('....................')
+                        print(f'You transferred ${transfer_amount} from the account of: {account_from_fname} {account_from_lname} to the account of {account_to_fname} {account_to_lname}.')
+                        print(f'The new balance is ${accountHolderObject.balance}')
+                        print('....................')
+                        break
+
     def makeWithdrawal(self): #4
         withdraw_amount = int(input('How much would you like to withdraw?: '))
         account_fname = input('What is the first name of the account holder?: ')
@@ -332,7 +362,17 @@ class Bank():
         for accountHolderObject in self.account_holders:
             if accountHolderObject.last_name == account_lname and accountHolderObject.first_name == account_fname: #when we find the account with matching first and last name
                 accountHolderObject.balance -= withdraw_amount
-                print(f'You withdrew ${withdraw_amount}, your new balance is ${accountHolderObject.balance}')
+                if accountHolderObject.balance >= 0:
+                    print('....................')
+                    print(f'You withdrew ${withdraw_amount} from the account of: {account_fname} {account_lname}. The new balance is ${accountHolderObject.balance}')
+                    print('....................')
+                else:
+                    odraft_amount = 0 - accountHolderObject.balance
+                    accountHolderObject.balance -= 35
+                    print('....................') 
+                    print(f'You have overdrafted your account by ${odraft_amount}. You have been charged a $35 overdraft fee.')
+                    print(f'Your balance including all fees is now ${accountHolderObject.balance}. Have a great day!')
+                    print('....................')
 
 def main():
     wellsfargo = Bank('Wells Fargo', '123 Sesame Street')
@@ -341,12 +381,12 @@ def main():
     wellsfargo.addAccountHolder('Annie', 'Kearney', 'Cline', 'Checking', 500, 'Open')
     wellsfargo.addAccountHolder('Shaquille', 'Oneill', 'Money', 'Checking', 100000000, 'Open')
     action = 0
-    while action != 6:
+    while action != 5:
         print('1. Create an account')
         print('2. Show all account members')
         print('3. Transfer money from one account to another')
         print('4. Make a withdrawal')
-        print('6. Quit')
+        print('5. Quit')
 
         action = int(input('What would you like to do?: '))
         if (action == 1): #create an account
@@ -360,9 +400,9 @@ def main():
         if (action == 2): #show all account holders
             wellsfargo.showCurrentAccountHolders()
 
-        #if (action == 3):
-
-        if (action == 4):
+        if (action == 3): #make a transfer
+            wellsfargo.makeTransfer()
+        if (action == 4): #make a withdrawal
             wellsfargo.makeWithdrawal()
 
 

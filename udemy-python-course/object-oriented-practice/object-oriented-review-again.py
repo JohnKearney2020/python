@@ -114,7 +114,7 @@ class WorkingStudent(Student):
         super().__init__(name, school) #this calls the __init__ method in the parent class, the Student class above, and it initializes name and school
         self.salary = salary #salary is the only unique variable that needs to be initialized in this class
     
-    @property
+    @property #don't use this for actions, such as connecting to a database, only use it for calculations.
     def weekly_salary(self):
         return self.salary * 40
         
@@ -123,4 +123,4 @@ print(rolf.salary)
 rolf.marks.append(57)
 rolf.marks.append(99)
 print(rolf.salary)
-print(rolf.weekly_salary)
+print(rolf.weekly_salary) #don't need the () because of the @property decorator
